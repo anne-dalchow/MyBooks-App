@@ -1,0 +1,161 @@
+*{
+ margin: 0;
+ padding: 0;
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ box-sizing: border-box;
+ scroll-behavior: smooth;
+}
+
+#navigation{
+ background-color: rgb(27, 27, 27);
+ color: white;
+ display: flex;
+ flex-flow: row wrap;
+ justify-content: end;
+ align-items: center;
+ height: 50px;
+ gap: 20px;
+ padding: 0 50px;
+}
+#navigation div{
+ cursor: pointer;
+}
+
+.header{
+ display: flex;
+ flex-flow: row nowrap;
+ align-items: center;
+}
+.header h1{
+ flex: 1;
+}
+
+.wrapper{
+ max-width: 70vw;
+ width: 70vw;
+ margin: 50px auto;
+}
+.book-grid-list{
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+ gap: 100px 40px;
+}
+.book{
+ max-width: 300px;
+ margin-top: 50px;
+}
+.book-img-container{
+ width: 100%;
+ position: relative;
+ overflow: hidden;
+}
+.book-img-container:hover .fa-trash-can{
+transform: translateY(0);
+opacity: 1;
+}
+.fa-bookmark,
+.fa-trash-can{
+ position: absolute;
+ right: 0px;
+ width: 100%;
+ text-align: right;
+ padding: 10px;
+ font-size: 1.25rem;
+}
+.fa-bookmark{
+ top: 0px;
+}
+.fa-bookmark:hover{
+ color: green;
+}
+#unread{
+ color: white;
+}
+#read{
+ color: black;
+}
+.fa-trash-can{
+ color: rgb(155, 0, 0);
+ opacity: 0;
+ transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+ background-color: rgb(255, 255, 255);
+ bottom: 0px;
+ transform: translateY(100%);
+}
+.book p:first-of-type {
+ font-style: italic;
+ margin-bottom: 20px;
+}
+.book h3{
+ margin-top: 20px;
+}
+
+
+.modal {
+ display: none;
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background: rgba(0, 0, 0, 0.5);
+ justify-content: center;
+ align-items: center;
+}
+
+.modal-content {
+ background: white;
+ padding: 20px;
+ border-radius: 10px;
+ text-align: center;
+ width: 300px;
+}
+
+button {
+ margin: 10px;
+ padding: 8px 12px;
+ border: none;
+ cursor: pointer;
+}
+
+#confirm-delete {
+ background-color: red;
+ color: white;
+}
+
+#cancel-delete {
+ background-color: gray;
+ color: white;
+}
+
+#add-book{
+ background-color: rgba(236, 236, 236, 0.548);
+ border: 2px dashed gray;
+ display: flex;
+ flex-flow: column wrap;
+ justify-content: center;
+ align-items: center;
+ height: 400px;
+}
+#add-book-button{
+ font-size: 50px;
+ cursor: pointer;
+ color: rgb(0, 92, 92);
+}
+.form{
+ margin: 200px 0;
+}
+#book-form{
+ display: flex;
+ flex-flow: row wrap;
+ gap: 50px;
+ margin-top: 50px;
+}
+#book-form hr{
+ margin-bottom: 50px;
+}
+#book-form div{
+ width: 100%;
+}
+
+textarea{width: 100%;height: 150px;}

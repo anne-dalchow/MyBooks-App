@@ -1,0 +1,123 @@
+{
+ "books": [
+   {
+     "title": "1984",
+     "author": "George Orwell",
+     "pages": 328,
+     "genre": "Uncategorized",
+     "readStatus": false
+   },
+   {
+     "title": "Brave New World",
+     "author": "Aldous Huxley",
+     "pages": 311,
+     "genre": "Roman",
+     "readStatus": false
+   },
+   {
+     "title": "Animal Farm",
+     "author": "George Orwell",
+     "pages": 112,
+     "genre": "Roman",
+     "readStatus": false
+   },
+   {
+     "title": "Der Herr der Ringe",
+     "author": "J.R.R. Tolkien",
+     "pages": 1200,
+     "genre": "Fantasy",
+     "readStatus": true
+   },
+   {
+     "title": "Der Alchimist",
+     "author": "Paulo Coelho",
+     "pages": 208,
+     "genre": "Philosophie",
+     "readStatus": true
+   },
+   {
+     "title": "Die Verwandlung",
+     "author": "Franz Kafka",
+     "pages": 100,
+     "genre": "Klassiker",
+     "readStatus": false
+   },
+   {
+     "title": "Harry Potter und der Stein der Weisen",
+     "author": "J.K. Rowling",
+     "pages": 300,
+     "genre": "Fantasy",
+     "readStatus": true
+   },
+   {
+     "title": "Das Parfum",
+     "author": "Patrick Süskind",
+     "pages": 280,
+     "genre": "Drama",
+     "readStatus": false
+   },
+   {
+     "title": "Die unendliche Geschichte",
+     "author": "Michael Ende",
+     "pages": 500,
+     "genre": "Fantasy",
+     "readStatus": true
+   },
+   {
+     "title": "Der Name der Rose",
+     "author": "Umberto Eco",
+     "pages": 600,
+     "genre": "Krimi",
+     "readStatus": false
+   },
+   {
+     "title": "Siddhartha",
+     "author": "Hermann Hesse",
+     "pages": 152,
+     "genre": "Philosophie",
+     "readStatus": true
+   },
+   {
+     "title": "Moby Dick",
+     "author": "Herman Melville",
+     "pages": 600,
+     "genre": "Abenteuer",
+     "readStatus": false
+   },
+   {
+     "title": "Die 5. Welle",
+     "author": "Rick Yancey",
+     "pages": 480,
+     "genre": "Science Fiction",
+     "readStatus": true
+   },
+   {
+     "title": "The Great Gatsby",
+     "author": "F. Scott Fitzgerald",
+     "pages": 180,
+     "genre": "Klassiker",
+     "readStatus": false
+   },
+   {
+     "title": "Der Hundertjährige, der aus dem Fenster stieg und verschwand",
+     "author": "Jonas Jonasson",
+     "pages": 400,
+     "genre": "Komödie",
+     "readStatus": true
+   },
+   {
+     "title": "Die Entdeckung der Langsamkeit",
+     "author": "Sten Nadolny",
+     "pages": 320,
+     "genre": "Roman",
+     "readStatus": false
+   },
+   {
+     "title": "Die Päpstin",
+     "author": "Donna W. Cross",
+     "pages": 500,
+     "genre": "Historischer Roman",
+     "readStatus": true
+   }
+ ]
+}
