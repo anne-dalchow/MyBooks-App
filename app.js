@@ -1,35 +1,29 @@
 const myLibrary = new Library();
 const form = document.getElementById("book-form");
 
-// JSON-Daten laden
-fetch('books.json')
-  .then(response => response.json())
-  .then(data => {
-    const booksFromJSON = data.books.map(bookData => new Book(bookData.title, bookData.author, bookData.pages, bookData.genre));
-
-    // Überprüfen, ob es schon Bücher im localStorage gibt
-    const storedBooks = JSON.parse(localStorage.getItem("library")) || [];
-
-    // JSON-Bücher hinzufügen, falls sie noch nicht existieren
-    const mergedBooks = [...storedBooks, ...booksFromJSON.filter(jsonBook => 
-      !storedBooks.some(storedBook => storedBook.title === jsonBook.title)
-    )];
-
-    myLibrary.books = mergedBooks;
-    
-    // In localStorage speichern
-    saveToLocalStorage();
-
-    displayBooks();
-  })
-  .catch(error => console.error("Fehler beim Laden der JSON Datei:", error));
-
-// Daten aus Local Storage laden
-window.addEventListener("load", () => {
+// Überprüfen, ob es bereits Bücher im Local Storage gibt
+window.addEventListener("load", ()=>{
   const storedBooks = JSON.parse(localStorage.getItem("library"));
-  if (storedBooks) {
-    myLibrary.books = storedBooks.map(bookData => new Book(bookData.title, bookData.author, bookData.pages, bookData.genre));
+
+  if(storedBooks){
+    //falls Bücher vorhanden, nur localStorage Daten nutzen
+    myLibrary.books = storedBooks.map(bookData =>
+      new Book(bookData.title, bookData.author, bookData.pages, bookData.genre)
+    );
     displayBooks();
+  } 
+  else{
+    // Falls keine Bücher im Local Storage sind, lade sie aus der JSON-Datei
+    fetch("books.json")
+      .then(response => response.json())
+      .then(data => {
+        myLibrary.books = data.books.map(bookData => 
+          new Book(bookData.title, bookData.author, bookData.pages, bookData.genre)
+        );
+        saveToLocalStorage();
+        displayBooks();
+      })
+      .catch(error => console.error("Fehler beim Laden der JSON Datei:", error));
   }
 });
 
@@ -55,7 +49,7 @@ form.addEventListener("submit", function (event) {
   form.reset();
 });
 
-// Funktion: Library im Local Storage speichern
+// Hilfsfunktion zum Speichern im Local Storage
 function saveToLocalStorage() {
   localStorage.setItem("library", JSON.stringify(myLibrary.books));
 }

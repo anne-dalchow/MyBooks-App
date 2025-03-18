@@ -7,11 +7,11 @@ class Library {
 
 
   get books() {
-    return this._books; 
+    return [...this._books]; 
   }
 
   set books(newBooks) {
-    if (Array.isArray(newBooks)) {
+    if (Array.isArray(newBooks) && newBooks.every(book => book instanceof Book)) {
       this._books = newBooks;
     } else {
       console.error("Die Bücher müssen in einem Array gespeichert werden.");
