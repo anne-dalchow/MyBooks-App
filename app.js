@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     if(bookToDelete){
       //aus myLibrary.books entfernt
       const bookTitel = bookToDelete.querySelector("h3").textContent;
-      myLibrary.removeTitle(bookTitle);
+      myLibrary.removeTitle(bookTitel);
 
       // aus DOM entfernt
       bookToDelete.remove();
