@@ -3,13 +3,21 @@ const form = document.getElementById("book-form");
 
 // Überprüfen, ob es bereits Bücher im Local Storage gibt
 window.addEventListener("load", ()=>{
+  // localStorage.removeItem("library"); Zurücksetzen für Local Storage
   const storedBooks = JSON.parse(localStorage.getItem("library"));
 
   if(storedBooks){
     //falls Bücher vorhanden, nur localStorage Daten nutzen
     myLibrary.books = storedBooks.map(bookData =>
-      new Book(bookData.title, bookData.author, bookData.pages, bookData.genre)
+      new Book(
+        bookData.title, 
+        bookData.author, 
+        bookData.pages, 
+        bookData.genre, 
+        bookData.description || "No description available"
+      )
     );
+
     displayBooks();
   } 
   else{
@@ -18,10 +26,17 @@ window.addEventListener("load", ()=>{
       .then(response => response.json())
       .then(data => {
         myLibrary.books = data.books.map(bookData => 
-          new Book(bookData.title, bookData.author, bookData.pages, bookData.genre)
+          new Book(
+            bookData.title, 
+            bookData.author, 
+            bookData.pages, 
+            bookData.genre, 
+            bookData.description || "No description available"
+          )
         );
         saveToLocalStorage();
         displayBooks();
+
       })
       .catch(error => console.error("Fehler beim Laden der JSON Datei:", error));
   }
@@ -36,8 +51,10 @@ form.addEventListener("submit", function (event) {
   const genre = document.getElementById("genre").value || "Uncategorized";
   const pages = parseInt(document.getElementById("seitenzahl").value);
   const readStatus = document.getElementById("read").checked;
+  const description = document.getElementById("description").value;
 
-  const newBook = new Book(title, author, pages, genre);
+
+  const newBook = new Book(title, author, pages, genre, description);
 
   if (readStatus) {
     newBook.markAsRead();
@@ -51,6 +68,7 @@ form.addEventListener("submit", function (event) {
 
 // Hilfsfunktion zum Speichern im Local Storage
 function saveToLocalStorage() {
+  console.log("Vor dem Speichern in localStorage:", myLibrary.books);
   localStorage.setItem("library", JSON.stringify(myLibrary.books));
 }
 
@@ -72,10 +90,11 @@ function displayBooks() {
 
     <h3>${book.title}</h3>
     <p>${book.author}</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque consequuntur, earum accusamus quae sequi at repellat assumenda.</p>
+    <p>${book.description}</p>
     <a href="#">Weiterlesen...</a>
     `;
     bookGrid.insertAdjacentElement("afterbegin", bookDiv);
+
   });
 }
 
@@ -132,13 +151,28 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+// Funktion, Beschreibung übernehmen -> default Text, falls keine vorhanden ist
 
 // Funktion: Mark as read
 
 
-//Funktion: Filter nach Autor
+//Funktion: Filter nach Autor, Titel, Genre, Gelesen, Ungelesen
+
+/** Beim click auf go button -> value aus dem Filter dropdown menü nehmen (entweder titel, autor,genre, gelesen, ungelesen )
+    filter value === autor, oder value === titel, value === genre, value === gelesen, value === ungelesen (vielleicht mit switch case)
+    dann book-grid-list leeren
+    book grid list mit büchern, die dem Fall entsprechen füllen
+    und Titelfilter "All books" auf value setzen, wie "Fantasy", Hermann Hesse, oder was auch immer
+ */
 
 
 //Funktion: Filter nach Titel
 
 //Funktion: Filter nach Genre
+
+
+// Sortieren Funktion
+
+
+// Button in Nav Bar oben für Buch hinzufügen -> leitet zum Formular
+

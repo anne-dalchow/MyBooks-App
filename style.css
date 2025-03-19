@@ -90,7 +90,6 @@ opacity: 1;
  margin-top: 20px;
 }
 
-
 .modal {
  display: none;
  position: fixed;
@@ -111,7 +110,7 @@ opacity: 1;
  width: 300px;
 }
 
-button {
+#filter-button {
  margin: 10px;
  padding: 8px 12px;
  border: none;
@@ -129,34 +128,63 @@ button {
  color: white;
 }
 
-#add-book{
- background-color: rgba(236, 236, 236, 0.548);
- border: 2px dashed gray;
- display: flex;
- flex-flow: column wrap;
- justify-content: center;
- align-items: center;
- height: 400px;
-}
-#add-book-button{
- font-size: 50px;
- cursor: pointer;
- color: rgb(0, 92, 92);
-}
 .form{
  margin: 200px 0;
 }
 #book-form{
  display: flex;
  flex-flow: row wrap;
- gap: 50px;
+ width: 100%;
+ justify-content: space-between;
+ gap: 20px;
  margin-top: 50px;
 }
+
 #book-form hr{
  margin-bottom: 50px;
 }
 #book-form div{
+ width: 40%;
+ display: flex;
+ flex-flow: row wrap;
+ gap: 10px;
+}
+#book-form div label{
+width: 20%;
+}
+#book-form div input{
+ width: 100%;
+ padding: 3px;
+}
+
+.newBook-description textarea{
+ width: 100%;
+ height: 150px;
+resize: none;
+padding: 5px;
+}
+
+.required{
+ color: red;
+}
+
+#book-form #checkbox,
+#book-form .newBook-description{
  width: 100%;
 }
 
-textarea{width: 100%;height: 150px;}
+#checkbox #checkbox-read{
+ width: 15px;
+}
+
+form button[type="submit"] {
+ display: block; 
+ margin-left: auto; 
+ margin-right: 0; 
+ padding: 8px 12px;
+ border: none;
+ border-radius: 5px;
+ cursor: pointer;
+ background-color: rgb(0, 112, 47);
+ color: white;
+}
