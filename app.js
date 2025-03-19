@@ -49,10 +49,7 @@ form.addEventListener("submit", function (event) {
   form.reset();
 });
 
-<<<<<<< Updated upstream
 // Hilfsfunktion zum Speichern im Local Storage
-=======
->>>>>>> Stashed changes
 function saveToLocalStorage() {
   localStorage.setItem("library", JSON.stringify(myLibrary.books));
 }
@@ -101,7 +98,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-<<<<<<< Updated upstream
   confirmDeleteBtn.addEventListener("click", ()=>{
     if(bookToDelete){
       //aus myLibrary.books entfernt
@@ -109,17 +105,6 @@ document.addEventListener("DOMContentLoaded", () => {
       myLibrary.removeTitle(bookTitel);
 
       // aus DOM entfernt
-=======
-  confirmDeleteBtn.addEventListener("click", () => {
-    if (bookToDelete) {
-      // Titel des zu löschenden Buches holen
-      const bookTitle = bookToDelete.querySelector("h3").textContent;
-  
-      // Titel in der Library entfernen
-      myLibrary.removeTitle(bookTitle);
-  
-      // DOM entfernen
->>>>>>> Stashed changes
       bookToDelete.remove();
       bookToDelete = null;
   
