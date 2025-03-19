@@ -49,7 +49,10 @@ form.addEventListener("submit", function (event) {
   form.reset();
 });
 
+<<<<<<< Updated upstream
 // Hilfsfunktion zum Speichern im Local Storage
+=======
+>>>>>>> Stashed changes
 function saveToLocalStorage() {
   localStorage.setItem("library", JSON.stringify(myLibrary.books));
 }
@@ -84,19 +87,21 @@ function displayBooks() {
 
 // Modal öffen
 
-document.addEventListener("DOMContentLoaded", ()=>{
+document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("delete-modal");
   const confirmDeleteBtn = document.getElementById("confirm-delete");
   const cancelDeleteBtn = document.getElementById("cancel-delete");
   let bookToDelete = null;
 
-  document.body.addEventListener("click", (event)=>{
-    if(event.target.classList.contains("fa-trash-can")){
-      modal.style.display = "flex";
-      bookToDelete = event.target.closest(".book");
+  document.body.addEventListener("click", (event) => {
+    // Überprüfen, ob auf das Löschen-Icon geklickt wurde
+    if (event.target.classList.contains("fa-trash-can")) {
+      modal.style.display = "flex"; // Modal anzeigen
+      bookToDelete = event.target.closest(".book"); // Das Buch, das gelöscht werden soll
     }
   });
 
+<<<<<<< Updated upstream
   confirmDeleteBtn.addEventListener("click", ()=>{
     if(bookToDelete){
       //aus myLibrary.books entfernt
@@ -104,27 +109,43 @@ document.addEventListener("DOMContentLoaded", ()=>{
       myLibrary.removeTitle(bookTitel);
 
       // aus DOM entfernt
+=======
+  confirmDeleteBtn.addEventListener("click", () => {
+    if (bookToDelete) {
+      // Titel des zu löschenden Buches holen
+      const bookTitle = bookToDelete.querySelector("h3").textContent;
+  
+      // Titel in der Library entfernen
+      myLibrary.removeTitle(bookTitle);
+  
+      // DOM entfernen
+>>>>>>> Stashed changes
       bookToDelete.remove();
       bookToDelete = null;
-      
+  
+      // Änderungen im Local Storage speichern
       saveToLocalStorage();
     }
-    modal.style.display ="none";
   
+    // Modal schließen
+    modal.style.display = "none";
   });
 
-  cancelDeleteBtn.addEventListener("click",()=>{
+  cancelDeleteBtn.addEventListener("click", () => {
+    // Modal schließen, ohne zu löschen
     modal.style.display = "none";
     bookToDelete = null;
   });
 
-  window.addEventListener("click",(event)=>{
-    if(event.target === modal){
+  window.addEventListener("click", (event) => {
+    // Klick außerhalb des Modals schließt das Modal
+    if (event.target === modal) {
       modal.style.display = "none";
       bookToDelete = null;
     }
   });
 });
+
 
 
 // Funktion: Mark as read
