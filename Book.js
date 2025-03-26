@@ -23,4 +23,3 @@ class Book {
     this.readStatus = false;
   }
 }
-

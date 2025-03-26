@@ -1,114 +1,118 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Document</title>
- <script src="https://kit.fontawesome.com/c14be6846e.js" crossorigin="anonymous"></script>
- <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/c14be6846e.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav id="navigation">
+      <div class="search-field-container">
+        <label for="search-field"
+          ><i class="fa-solid fa-magnifying-glass"></i
+        ></label>
+        <input type="text" name="search-field" id="search-field" />
+      </div>
+    </nav>
 
-</head>
-<body>
- <nav id="navigation">
-  <div class="search-field-container">
-   <label for="search-field"><i class="fa-solid fa-magnifying-glass"></i></label>
-   <input type="text" name="search-field" id="search-field">
-  </div>
- </nav>
+    <div class="wrapper">
+      <div class="header">
+        <h1>My Book Library</h1>
 
+        <div class="filter-field-container">
+          <label for="filter-field">Filtere nach: </label>
+          <select name="filter-field" id="filter-field">
+            <option value="default"></option>
+            <option value="author">Author</option>
+            <option value="titel">Titel</option>
+            <option value="genre">Genre</option>
+            <option value="gelesen">Gelesen</option>
+            <option value="ungelesen">Ungelesen</option>
+          </select>
+          <button id="filter-button">Go</button>
+        </div>
+      </div>
 
- <div class="wrapper">
-  
-  <div class="header">
-   <h1>My Book Library</h1>
+      <div class="book-filter-titel">
+        <h2>All Books</h2>
+        <hr />
+      </div>
+      <div class="book-grid-list"></div>
 
-   <div class="filter-field-container">
-    <label for="filter-field">Filtere nach: </label>
-    <select name="filter-field" id="filter-field">
-     <option value="default"></option>
-     <option value="author">Author</option>
-     <option value="titel">Titel</option>
-     <option value="genre">Genre</option>
-     <option value="gelesen">Gelesen</option>
-     <option value="ungelesen">Ungelesen</option>
-    </select> 
-    <button id="filter-button">Go</button>
-   </div>
+      <div id="delete-modal" class="modal">
+        <div class="modal-content">
+          <p>Möchtest du das Buch wirklich löschen?</p>
+          <button id="confirm-delete">Ja</button>
+          <button id="cancel-delete">Abbrechen</button>
+        </div>
+      </div>
 
-  </div>
+      <div class="form">
+        <h3>Buch hinzufügen</h3>
+        <hr />
+        <form id="book-form">
+          <div>
+            <label for="titel">Titel <span class="required">*</span></label>
+            <input type="text" name="titel" id="titel" required />
+          </div>
 
-  <div class="book-filter-titel">
-    <h2>All Books</h2>
-    <hr>
-  </div>
-  <div class="book-grid-list">
+          <div>
+            <label for="author">Autor*in <span class="required">*</span></label>
+            <input type="text" name="author" id="author" required />
+          </div>
 
+          <div>
+            <label for="genre">Genre</label>
+            <input type="text" name="genre" id="genre" />
+          </div>
 
-  </div>
+          <div>
+            <label for="verlag">Verlag</label>
+            <input type="text" name="verlag" id="verlag" />
+          </div>
 
-  <div id="delete-modal" class="modal">
-    <div class="modal-content">
-      <p>Möchtest du das Buch wirklich löschen?</p>
-      <button id="confirm-delete">Ja</button>
-      <button id="cancel-delete">Abbrechen</button>
+          <div>
+            <label for="isbn">ISBN</label>
+            <input
+              type="text"
+              name="isbn"
+              id="isbn"
+              pattern="\d{9,13}"
+              title="9-13-stellige Zahl"
+            />
+          </div>
+
+          <div>
+            <label for="seitenzahl">Seitenzahl</label>
+            <input type="number" name="seitenzahl" id="seitenzahl" min="1" />
+          </div>
+
+          <div id="checkbox">
+            <input type="checkbox" name="read" id="checkbox-read" />
+            <label for="read">Gelesen ?</label>
+          </div>
+
+          <div class="newBook-description">
+            <label for="description">Beschreibung</label>
+            <textarea
+              name="description"
+              id="description"
+              placeholder="Erstelle eine kurze Beschreibung"
+            ></textarea>
+          </div>
+
+          <button type="submit">Buch hinzufügen</button>
+        </form>
+      </div>
     </div>
-  </div>
 
-  <div class="form">
-    <h3>Buch hinzufügen</h3>
-    <hr>
-    <form id="book-form">
-       <div>
-          <label for="titel">Titel <span class="required">*</span></label>
-          <input type="text" name="titel" id="titel" required>
-       </div>
- 
-       <div>
-          <label for="author">Autor*in <span class="required">*</span></label>
-          <input type="text" name="author" id="author" required>
-       </div>
- 
-       <div>
-          <label for="genre">Genre</label>
-          <input type="text" name="genre" id="genre">
-       </div>
- 
-       <div>
-          <label for="verlag">Verlag</label>
-          <input type="text" name="verlag" id="verlag">
-       </div>
- 
-       <div>
-          <label for="isbn">ISBN</label>
-          <input type="text" name="isbn" id="isbn" pattern="\d{9,13}" title="9-13-stellige Zahl">
-       </div>
- 
-       <div>
-          <label for="seitenzahl">Seitenzahl</label>
-          <input type="number" name="seitenzahl" id="seitenzahl" min="1">
-       </div>
- 
-       <div id="checkbox">
-          <input type="checkbox" name="read" id="checkbox-read">
-          <label for="read">Gelesen ?</label>
-       </div>
- 
-       <div class="newBook-description">
-          <label for="description">Beschreibung</label>
-          <textarea name="description" id="description" placeholder="Erstelle eine kurze Beschreibung"></textarea>
-       </div>
- 
-       <button type="submit">Buch hinzufügen</button>
-    </form>
- </div>
- 
-
- </div>
- 
-
- <script src="Book.js" defer></script>
- <script src="Library.js" defer></script>
- <script src="app.js" defer></script>
-
-</body>
+    <script src="Book.js" defer></script>
+    <script src="Library.js" defer></script>
+    <script src="app.js" defer></script>
+  </body>
 </html>

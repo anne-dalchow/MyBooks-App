@@ -1,148 +1,148 @@
 {
- "books": [
-   {
-     "title": "1984",
-     "author": "George Orwell",
-     "pages": 328,
-     "genre": "Uncategorized",
-     "readStatus": false,
-     "description": "Eine düstere Zukunftsvision über totale Überwachung und Gedankenkontrolle. Ein Klassiker der dystopischen Literatur."
-   },
-   {
-     "title": "Brave New World",
-     "author": "Aldous Huxley",
-     "pages": 311,
-     "genre": "Roman",
-     "readStatus": false,
-     "description": "Eine Zukunftsgesellschaft, in der Glück durch Kontrolle und Manipulation erzwungen wird. Gesellschaftskritischer Roman mit Tiefgang."
-   },
-   {
-     "title": "Animal Farm",
-     "author": "George Orwell",
-     "pages": 112,
-     "genre": "Roman",
-     "readStatus": false,
-     "description": "Eine politische Fabel über Machtmissbrauch und Revolution. Orwell zeigt, wie Ideale durch Korruption zerfallen."
-   },
-   {
-     "title": "Der Herr der Ringe",
-     "author": "J.R.R. Tolkien",
-     "pages": 1200,
-     "genre": "Fantasy",
-     "readStatus": true,
-     "description": "Ein episches Fantasy-Abenteuer über den Kampf von Gut gegen Böse. Eine Reise voller Magie, Freundschaft und Gefahr."
-   },
-   {
-     "title": "Der Alchimist",
-     "author": "Paulo Coelho",
-     "pages": 208,
-     "genre": "Philosophie",
-     "readStatus": true,
-     "description": "Eine inspirierende Geschichte über Träume, Selbstverwirklichung und das Schicksal. Poetisch und tiefgründig zugleich."
-   },
-   {
-     "title": "Die Verwandlung",
-     "author": "Franz Kafka",
-     "pages": 100,
-     "genre": "Klassiker",
-     "readStatus": false,
-     "description": "Ein Mann erwacht als riesiger Käfer und wird zum Außenseiter. Kafkas berühmteste Erzählung über Isolation und Identitätsverlust."
-   },
-   {
-     "title": "Harry Potter und der Stein der Weisen",
-     "author": "J.K. Rowling",
-     "pages": 300,
-     "genre": "Fantasy",
-     "readStatus": true,
-     "description": "Der Beginn einer magischen Reise, in der ein Junge erfährt, dass er ein Zauberer ist. Abenteuer und Freundschaft in Hogwarts."
-   },
-   {
-     "title": "Das Parfum",
-     "author": "Patrick Süskind",
-     "pages": 280,
-     "genre": "Drama",
-     "readStatus": false,
-     "description": "Die Geschichte eines genialen Duftmörders mit einem einzigartigen Geruchssinn. Düster, fesselnd und intensiv."
-   },
-   {
-     "title": "Die unendliche Geschichte",
-     "author": "Michael Ende",
-     "pages": 500,
-     "genre": "Fantasy",
-     "readStatus": true,
-     "description": "Ein Junge taucht in ein magisches Buch ein und beeinflusst die Welt darin. Eine Hommage an die Kraft der Fantasie."
-   },
-   {
-     "title": "Der Name der Rose",
-     "author": "Umberto Eco",
-     "pages": 600,
-     "genre": "Krimi",
-     "readStatus": false,
-     "description": "Ein mittelalterlicher Krimi über einen Mord in einem Kloster. Ein historisches Puzzle voller Geheimnisse und Philosophie."
-   },
-   {
-     "title": "Siddhartha",
-     "author": "Hermann Hesse",
-     "pages": 152,
-     "genre": "Philosophie",
-     "readStatus": true,
-     "description": "Die spirituelle Reise eines Mannes auf der Suche nach Erleuchtung. Eine zeitlose Erzählung über das Leben und den Sinn des Seins."
-   },
-   {
-     "title": "Moby Dick",
-     "author": "Herman Melville",
-     "pages": 600,
-     "genre": "Abenteuer",
-     "readStatus": false,
-     "description": "Der erbitterte Kampf eines Kapitäns gegen einen riesigen weißen Wal. Ein Abenteuer voller Obsession und Schicksal."
-   },
-   {
-     "title": "Die 5. Welle",
-     "author": "Rick Yancey",
-     "pages": 480,
-     "genre": "Science Fiction",
-     "readStatus": true,
-     "description": "Eine dystopische Science-Fiction-Story über eine Alien-Invasion. Spannung, Überleben und eine starke Heldin."
-   },
-   {
-     "title": "The Great Gatsby",
-     "author": "F. Scott Fitzgerald",
-     "pages": 180,
-     "genre": "Klassiker",
-     "readStatus": false,
-     "description": "Ein Blick auf die exzessiven 1920er-Jahre und die Illusion des amerikanischen Traums. Glanz, Liebe und Tragik."
-   },
-   {
-     "title": "Der Hundertjährige, der aus dem Fenster stieg und verschwand",
-     "author": "Jonas Jonasson",
-     "pages": 400,
-     "genre": "Komödie",
-     "readStatus": true,
-     "description": "Eine schrullige Komödie über einen alten Mann, der aus dem Altersheim flieht. Skurril, witzig und charmant."
-   },
-   {
-     "title": "Die Entdeckung der Langsamkeit",
-     "author": "Sten Nadolny",
-     "pages": 320,
-     "genre": "Roman",
-     "readStatus": false,
-     "description": "Die Geschichte eines Mannes, der die Welt anders wahrnimmt. Ein bewegender Roman über Geduld und Beständigkeit."
-   },
-   {
-     "title": "Die Päpstin",
-     "author": "Donna W. Cross",
-     "pages": 500,
-     "genre": "Historischer Roman",
-     "readStatus": true,
-     "description": ""
-   },
-   {
-    "title": "Die Papst",
-    "author": "Donna W. Cross",
-    "pages": 500,
-    "genre": "Historischer Roman",
-    "readStatus": true,
-    "description": ""
-  }
- ]
+  "books": [
+    {
+      "title": "1984",
+      "author": "George Orwell",
+      "pages": 328,
+      "genre": "Uncategorized",
+      "readStatus": false,
+      "description": "Eine düstere Zukunftsvision über totale Überwachung und Gedankenkontrolle. Ein Klassiker der dystopischen Literatur."
+    },
+    {
+      "title": "Brave New World",
+      "author": "Aldous Huxley",
+      "pages": 311,
+      "genre": "Roman",
+      "readStatus": false,
+      "description": "Eine Zukunftsgesellschaft, in der Glück durch Kontrolle und Manipulation erzwungen wird. Gesellschaftskritischer Roman mit Tiefgang."
+    },
+    {
+      "title": "Animal Farm",
+      "author": "George Orwell",
+      "pages": 112,
+      "genre": "Roman",
+      "readStatus": false,
+      "description": "Eine politische Fabel über Machtmissbrauch und Revolution. Orwell zeigt, wie Ideale durch Korruption zerfallen."
+    },
+    {
+      "title": "Der Herr der Ringe",
+      "author": "J.R.R. Tolkien",
+      "pages": 1200,
+      "genre": "Fantasy",
+      "readStatus": true,
+      "description": "Ein episches Fantasy-Abenteuer über den Kampf von Gut gegen Böse. Eine Reise voller Magie, Freundschaft und Gefahr."
+    },
+    {
+      "title": "Der Alchimist",
+      "author": "Paulo Coelho",
+      "pages": 208,
+      "genre": "Philosophie",
+      "readStatus": true,
+      "description": "Eine inspirierende Geschichte über Träume, Selbstverwirklichung und das Schicksal. Poetisch und tiefgründig zugleich."
+    },
+    {
+      "title": "Die Verwandlung",
+      "author": "Franz Kafka",
+      "pages": 100,
+      "genre": "Klassiker",
+      "readStatus": false,
+      "description": "Ein Mann erwacht als riesiger Käfer und wird zum Außenseiter. Kafkas berühmteste Erzählung über Isolation und Identitätsverlust."
+    },
+    {
+      "title": "Harry Potter und der Stein der Weisen",
+      "author": "J.K. Rowling",
+      "pages": 300,
+      "genre": "Fantasy",
+      "readStatus": true,
+      "description": "Der Beginn einer magischen Reise, in der ein Junge erfährt, dass er ein Zauberer ist. Abenteuer und Freundschaft in Hogwarts."
+    },
+    {
+      "title": "Das Parfum",
+      "author": "Patrick Süskind",
+      "pages": 280,
+      "genre": "Drama",
+      "readStatus": false,
+      "description": "Die Geschichte eines genialen Duftmörders mit einem einzigartigen Geruchssinn. Düster, fesselnd und intensiv."
+    },
+    {
+      "title": "Die unendliche Geschichte",
+      "author": "Michael Ende",
+      "pages": 500,
+      "genre": "Fantasy",
+      "readStatus": true,
+      "description": "Ein Junge taucht in ein magisches Buch ein und beeinflusst die Welt darin. Eine Hommage an die Kraft der Fantasie."
+    },
+    {
+      "title": "Der Name der Rose",
+      "author": "Umberto Eco",
+      "pages": 600,
+      "genre": "Krimi",
+      "readStatus": false,
+      "description": "Ein mittelalterlicher Krimi über einen Mord in einem Kloster. Ein historisches Puzzle voller Geheimnisse und Philosophie."
+    },
+    {
+      "title": "Siddhartha",
+      "author": "Hermann Hesse",
+      "pages": 152,
+      "genre": "Philosophie",
+      "readStatus": true,
+      "description": "Die spirituelle Reise eines Mannes auf der Suche nach Erleuchtung. Eine zeitlose Erzählung über das Leben und den Sinn des Seins."
+    },
+    {
+      "title": "Moby Dick",
+      "author": "Herman Melville",
+      "pages": 600,
+      "genre": "Abenteuer",
+      "readStatus": false,
+      "description": "Der erbitterte Kampf eines Kapitäns gegen einen riesigen weißen Wal. Ein Abenteuer voller Obsession und Schicksal."
+    },
+    {
+      "title": "Die 5. Welle",
+      "author": "Rick Yancey",
+      "pages": 480,
+      "genre": "Science Fiction",
+      "readStatus": true,
+      "description": "Eine dystopische Science-Fiction-Story über eine Alien-Invasion. Spannung, Überleben und eine starke Heldin."
+    },
+    {
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "pages": 180,
+      "genre": "Klassiker",
+      "readStatus": false,
+      "description": "Ein Blick auf die exzessiven 1920er-Jahre und die Illusion des amerikanischen Traums. Glanz, Liebe und Tragik."
+    },
+    {
+      "title": "Der Hundertjährige, der aus dem Fenster stieg und verschwand",
+      "author": "Jonas Jonasson",
+      "pages": 400,
+      "genre": "Komödie",
+      "readStatus": true,
+      "description": "Eine schrullige Komödie über einen alten Mann, der aus dem Altersheim flieht. Skurril, witzig und charmant."
+    },
+    {
+      "title": "Die Entdeckung der Langsamkeit",
+      "author": "Sten Nadolny",
+      "pages": 320,
+      "genre": "Roman",
+      "readStatus": false,
+      "description": "Die Geschichte eines Mannes, der die Welt anders wahrnimmt. Ein bewegender Roman über Geduld und Beständigkeit."
+    },
+    {
+      "title": "Die Päpstin",
+      "author": "Donna W. Cross",
+      "pages": 500,
+      "genre": "Historischer Roman",
+      "readStatus": true,
+      "description": ""
+    },
+    {
+      "title": "Die Papst",
+      "author": "Donna W. Cross",
+      "pages": 500,
+      "genre": "Historischer Roman",
+      "readStatus": true,
+      "description": ""
+    }
+  ]
 }
