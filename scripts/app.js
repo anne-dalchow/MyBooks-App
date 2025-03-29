@@ -3,7 +3,6 @@ const form = document.getElementById("book-form");
 
 // Überprüfen, ob es bereits Bücher im Local Storage gibt
 window.addEventListener("load", () => {
-  // localStorage.removeItem("library"); Zurücksetzen für Local Storage
   const storedBooks = JSON.parse(localStorage.getItem("library"));
 
   if (storedBooks) {
@@ -22,7 +21,7 @@ window.addEventListener("load", () => {
     displayBooks();
   } else {
     // Falls keine Bücher im Local Storage sind, lade sie aus der JSON-Datei
-    fetch("books.json")
+    fetch("./json/books.json")
       .then((response) => response.json())
       .then((data) => {
         myLibrary.books = data.books.map(
@@ -44,30 +43,30 @@ window.addEventListener("load", () => {
   }
 });
 
-// ------------ submit btn checken --------------------- //
 
 // Buch hinzufügen
-form.addEventListener("submit", function (event) {
-  event.preventDefault();
+function addBook(event){
+    event.preventDefault();
 
   const title = document.getElementById("titel").value;
   const author = document.getElementById("author").value;
   const genre = document.getElementById("genre").value || "Uncategorized";
   const pages = parseInt(document.getElementById("seitenzahl").value);
-  const readStatus = document.getElementById("read").checked;
+  // const readStatus = document.getElementById("read").checked;
   const description = document.getElementById("description").value;
 
   const newBook = new Book(title, author, pages, genre, description);
 
-  if (readStatus) {
-    newBook.markAsRead();
-  }
+  // if (readStatus) {
+  //   newBook.markAsRead();
+  // }
 
   myLibrary.addBook(newBook);
   saveToLocalStorage();
   displayBooks();
   form.reset();
-});
+
+}
 
 // Hilfsfunktion zum Speichern im Local Storage
 function saveToLocalStorage() {
@@ -86,15 +85,18 @@ function displayBooks() {
 
     bookDiv.innerHTML = `
     <div class="book-img-container">
-      <img class="book-img" src="https://placehold.co/300x400" alt="image placeholder">
+      <img class="book-img" src="./assets/img/book_temp.png" alt="image placeholder">
       <i id="unread" class="fa-solid fa-bookmark"></i>
       <i class="fa-solid fa-trash-can"></i>
     </div>
-
+    <div class="book-content-container">
+    <div>
     <h3>${book.title}</h3>
     <p>${book.author}</p>
     <p>${book.description}</p>
+    </div>
     <a href="#">Weiterlesen...</a>
+    </div>
     `;
     bookGrid.insertAdjacentElement("afterbegin", bookDiv);
   });

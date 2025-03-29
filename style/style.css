@@ -43,11 +43,17 @@
 .book {
   max-width: 300px;
   margin-top: 50px;
+  border: 1px solid black;
+  display: flex;
+  flex-flow: column nowrap;
 }
 .book-img-container {
   width: 100%;
   position: relative;
   overflow: hidden;
+}
+.book-img{
+  width: 100%;
 }
 .book-img-container:hover .fa-trash-can {
   transform: translateY(0);
@@ -82,14 +88,21 @@
   text-align: center;
   transform: translateY(100%);
 }
+.book-content-container{
+  padding: 16px;
+  background-color: rgb(226, 226, 226);
+  flex: 1;
+  display: flex;
+  flex-flow: column;
+}
+.book-content-container div{
+  flex: 1;
+  margin-bottom: 10px;
+}
 .book p:first-of-type {
   font-style: italic;
   margin-bottom: 20px;
 }
-.book h3 {
-  margin-top: 20px;
-}
-
 .modal {
   display: none;
   position: fixed;
