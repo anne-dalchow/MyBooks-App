@@ -2,58 +2,38 @@
 
 class Library {
   constructor() {
-    this._books = [];
-  }
-
-  get books() {
-    return [...this._books];
-  }
-
-  set books(newBooks) {
-    if (
-      Array.isArray(newBooks) &&
-      newBooks.every((book) => book instanceof Book)
-    ) {
-      this._books = newBooks;
-    } else {
-      console.error("Die Bücher müssen in einem Array gespeichert werden.");
-    }
+    this.books = [];  // Array zum Speichern der Bücher
   }
 
   addBook(book) {
     if (book.title && book.author) {
-      this._books.push(book);
+      this.books.push(book);  // Fügt das Buch in das Array ein
     } else {
-      console.error(
-        "Ein Buch benötigt mindestens einen Titel und einen Autor."
-      );
+      console.error("Buch benötigt einen Titel und einen Autor.");
     }
   }
 
-  findTitle(title) {
-    return this._books.filter(
-      (book) => book.title.toLowerCase() === title.toLowerCase()
-    );
+  listBooks() {
+    this.books.forEach((book) => {
+      console.log(book.getInfo());  // Ruft für jedes Buch die Info auf und gibt sie aus
+    });
   }
 
-  listBooks() {
-    this._books.forEach((book) => console.log(book.getInfo()));
+  findTitle(title) {
+    return this.books.filter((book) => book.title.toLowerCase() === title.toLowerCase());
+  }
+
+  findByGenre(genre) {
+    return this.books.filter((book) => book.genre.toLowerCase() === genre.toLowerCase());
   }
 
   listUnreadBooks() {
-    const unreadBooks = this._books.filter((book) => !book.readStatus);
+    const unreadBooks = this.books.filter((book) => !book.readStatus);
     unreadBooks.forEach((book) => console.log(book.getInfo()));
   }
 
   removeTitle(title) {
-    this._books = this._books.filter(
-      (book) => book.title.toLowerCase() !== title.toLowerCase()
-    );
-  }
-
-  findByGenre(genre) {
-    return this._books.filter(
-      (book) => book.genre.toLowerCase() === genre.toLowerCase()
-    );
+    this.books = this.books.filter((book) => book.title.toLowerCase() !== title.toLowerCase());
   }
 }
+
