@@ -1,18 +1,20 @@
 // ---------------- Klasse Book ------------------ //
-
-class Book {
-  constructor(title, author, pages, genre = "Uncategorized", description) {
+export class Book {
+  constructor(
+    title,
+    author,
+    cover,
+    description
+  ) {
     this.title = title;
     this.author = author;
-    this.pages = pages;
-    this.readStatus = false;
-    this.genre = genre;
-    this.description = description || "No description available";
+    this.cover = cover;
+    this.description = description || "Keine Beschreibung verfügbar";
+    this.readStatus = false; // Defaultwert
   }
 
   getInfo() {
-    const readStatus = this.readStatus ? `Gelesen` : `Ungelesen`;
-    return `Titel: ${this.title}, Autor: ${this.author}, Seiten: ${this.pages}, Genre: ${this.genre}, Status: ${readStatus}, Beschreibung: ${this.description}`;
+    return `Titel: ${this.title}, Autor: ${this.author}, Cover:${this.cover},Beschreibung: ${this.description}`;
   }
 
   markAsRead() {

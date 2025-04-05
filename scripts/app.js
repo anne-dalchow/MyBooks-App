@@ -1,5 +1,11 @@
+import { Book } from "./Book.js";
+import { Library } from "./Library.js";
+
 const myLibrary = new Library();
 const form = document.getElementById("book-form");
+const searchButton = document.getElementById("search-button");
+
+
 
 
 // Überprüfen, ob es bereits Bücher im Local Storage gibt
@@ -13,8 +19,7 @@ window.addEventListener("load", () => {
         new Book(
           bookData.title,
           bookData.author,
-          bookData.pages,
-          bookData.genre,
+          bookData.cover,
           bookData.description || "No description available"
         )
     );
@@ -30,8 +35,7 @@ window.addEventListener("load", () => {
             new Book(
               bookData.title,
               bookData.author,
-              bookData.pages,
-              bookData.genre,
+              bookData.cover,
               bookData.description || "No description available"
             )
         );
@@ -44,6 +48,91 @@ window.addEventListener("load", () => {
   }
 });
 
+// Event Listener für das Hinzufügen eines Buches
+
+form.addEventListener("submit", addBook);
+
+// Buch hinzufügen
+function addBook(event) {
+  event.preventDefault();
+
+  const title = document.getElementById("titel").value;
+  const author = document.getElementById("author").value;
+  const cover = '';
+  const description = document.getElementById("description").value;
+  const isbn = document.getElementById("isbn").value;
+
+  if (isbn) {
+    // Wenn eine ISBN eingegeben wurde, versuche, die Details zu laden
+    getBookDetailsFromISBN(isbn).then((bookDetails) => {
+      if (bookDetails) {
+        // Wenn Buchdetails gefunden wurden, Buch hinzufügen
+        const newBook = new Book(
+          bookDetails.title || title,
+          bookDetails.author || author,
+          bookDetails.cover || cover,
+          bookDetails.description || description
+        );
+        myLibrary.addBook(newBook);
+        saveToLocalStorage();
+        displayBooks();
+        form.reset();
+      } else {
+        alert("Buch konnte nicht gefunden werden.");
+      }
+    });
+  } else {
+    // Wenn keine ISBN eingegeben wurde, versuche, die Buchdetails anhand von Titel und Autor zu bekommen
+    getBookDetailsFromTitleAndAuthor(title, author).then((bookDetails) => {
+      if (bookDetails) {
+        // Wenn Buchdetails gefunden wurden, Buch hinzufügen
+        const newBook = new Book(
+          bookDetails.title || title,
+          bookDetails.author || author,
+          bookDetails.cover || cover,
+          bookDetails.description || description
+        );
+        myLibrary.addBook(newBook);
+        saveToLocalStorage();
+        displayBooks();
+        form.reset();
+      } else {
+        // Wenn keine Details gefunden wurden, füge das Buch trotzdem hinzu
+        const newBook = new Book(title, author, cover, description);
+        myLibrary.addBook(newBook);
+        saveToLocalStorage();
+        displayBooks();
+        form.reset();
+        alert("Buchdetails wurden nicht gefunden. Ihr Buch wird dennoch ihrer Bibliothek hinzugefügt");
+      }
+    });
+  }
+  window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+}
+
+
+// Hilfsfunktion zum Speichern im Local Storage
+function saveToLocalStorage() {
+  console.log("Vor dem Speichern in localStorage:", myLibrary.books);
+  localStorage.setItem("library", JSON.stringify(myLibrary.books));
+}
+
+
+searchButton.addEventListener("click", searchBooks);
+
+// Buch über Suchfeld hinzufügen
+function searchBooks() {
+  const searchTerm = document.getElementById("searchInput").value;
+  if (searchTerm) {
+    myLibrary.fetchBooks(searchTerm, () => {
+      saveToLocalStorage();
+      displayBooks(); // Das ist deine eigene Anzeige-Funktion
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      const container = document.getElementById("book-container");
+      container.innerHTML ="";
+    });
+  }
+}
 
 // Funktion, um Buchdetails anhand von Titel und Autor zu holen
 function getBookDetailsFromTitleAndAuthor(title, author) {
@@ -59,6 +148,7 @@ function getBookDetailsFromTitleAndAuthor(title, author) {
         return {
           title: book.title,
           author: book.author_name ? book.author_name[0] : author, // Nur den ersten Autor verwenden
+          cover: book.cover ? book.cover : '',
           description: book.first_sentence ? book.first_sentence[0] : "Keine Beschreibung verfügbar",
         };
       } else {
@@ -83,6 +173,7 @@ function getBookDetailsFromISBN(isbn) {
         return {
           title: book.title,
           author: book.authors ? book.authors[0].name : "Unbekannt", // Nur den ersten Autor verwenden
+          cover: book.cover ? book.cover : '',
           description: book.description ? book.description.value : "Keine Beschreibung verfügbar",
         };
       } else {
@@ -95,72 +186,9 @@ function getBookDetailsFromISBN(isbn) {
     });
 }
 
-// Buch hinzufügen
-function addBook(event) {
-  event.preventDefault();
 
-  const title = document.getElementById("titel").value;
-  const author = document.getElementById("author").value;
-  const genre = document.getElementById("genre").value || "Uncategorized";
-  const pages = parseInt(document.getElementById("seitenzahl").value);
-  const description = document.getElementById("description").value;
-  const isbn = document.getElementById("isbn").value;
-
-  if (isbn) {
-    // Wenn eine ISBN eingegeben wurde, versuche, die Details zu laden
-    getBookDetailsFromISBN(isbn).then((bookDetails) => {
-      if (bookDetails) {
-        // Wenn Buchdetails gefunden wurden, Buch hinzufügen
-        const newBook = new Book(
-          bookDetails.title || title,
-          bookDetails.author || author,
-          pages,
-          genre,
-          bookDetails.description || description
-        );
-        myLibrary.addBook(newBook);
-        saveToLocalStorage();
-        displayBooks();
-        form.reset();
-      } else {
-        alert("Buch konnte nicht gefunden werden.");
-      }
-    });
-  } else {
-    // Wenn keine ISBN eingegeben wurde, versuche, die Buchdetails anhand von Titel und Autor zu bekommen
-    getBookDetailsFromTitleAndAuthor(title, author).then((bookDetails) => {
-      if (bookDetails) {
-        // Wenn Buchdetails gefunden wurden, Buch hinzufügen
-        const newBook = new Book(
-          bookDetails.title || title,
-          bookDetails.author || author,
-          pages,
-          genre,
-          bookDetails.description || description
-        );
-        myLibrary.addBook(newBook);
-        saveToLocalStorage();
-        displayBooks();
-        form.reset();
-      } else {
-        // Wenn keine Details gefunden wurden, füge das Buch trotzdem hinzu
-        const newBook = new Book(title, author, pages, genre, description);
-        myLibrary.addBook(newBook);
-        saveToLocalStorage();
-        displayBooks();
-        form.reset();
-        alert("Buchdetails wurden nicht gefunden. Ihr Buch wird dennoch ihrer Bibliothek hinzugefügt");
-      }
-    });
-  }
-  window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-}
   
-// Hilfsfunktion zum Speichern im Local Storage
-function saveToLocalStorage() {
-  console.log("Vor dem Speichern in localStorage:", myLibrary.books);
-  localStorage.setItem("library", JSON.stringify(myLibrary.books));
-}
+
 
 // Funktion: Bücher im Grid anzeigen
 function displayBooks() {
@@ -173,7 +201,7 @@ function displayBooks() {
 
     bookDiv.innerHTML = `
     <div class="book-img-container">
-      <img class="book-img" src="./assets/img/book_temp.png" alt="image placeholder">
+      <img class="book-img" src="${book.cover}" alt="">
       <i id="unread" class="fa-solid fa-bookmark"></i>
       <i class="fa-solid fa-trash-can"></i>
     </div>
@@ -189,6 +217,7 @@ function displayBooks() {
     bookGrid.insertAdjacentElement("afterbegin", bookDiv);
   });
 }
+
 
 // Funktion: Buch löschen
 
