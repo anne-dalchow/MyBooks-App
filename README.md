@@ -14,7 +14,7 @@ A shop system for virtually "buying" books is already planned.
 ## 📚 Data Source
 This project uses the OpenLibrary API to fetch book information based on titles or ISBNs.
 The book data (such as title, author, and cover images) comes directly from OpenLibrary – a non-profit project by the Internet Archive Foundation with the goal of creating an open library for everyone.
-<br><br><br>
+<br><br>
 
 ## 🧰 Technologies Used
 - HTML5
