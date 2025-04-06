@@ -5,27 +5,56 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
-h3{
+h3 {
   font-size: 1.5rem;
 }
-a{
-
+a {
+  text-decoration: none;
   color: rgb(255, 255, 255);
 }
-body{
+ul{
+  list-style: none;
+  padding: 0;
+}
+body {
   background-color: rgb(33, 37, 41);
   color: white;
 }
 
- /* rgb(100, 41, 219); */
-.navbar-expand-lg{
+.navbar-expand-lg {
   background-color: rgb(27, 105, 82);
 }
-.navbar-collapse{
+.navbar-collapse {
   justify-content: flex-end;
 }
-.navbar-expand-lg a{
+.navbar-expand-lg a {
   color: white !important;
+}
+
+.navbar{
+  height: 77px;
+  z-index: 999;
+}
+.navbar-brand img,
+.subnavbar-brand img {
+  height: 50px;
+}
+.subnav{
+
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 200px;
+  background-color: rgb(45, 51, 56);
+  display: flex;
+  flex-flow: column wrap;
+  padding: 16px;
+  gap: 50px;
+}
+.subnavbar-nav{
+  display: flex;
+  flex-flow: column wrap;
+  gap: 24px;
 }
 .header {
   display: flex;
@@ -35,11 +64,8 @@ body{
 .header h1 {
   flex: 1;
 }
-
 .wrapper {
-  max-width: 70vw;
-  width: 70vw;
-  margin: 50px auto;
+  margin: 50px 100px 50px 300px;
 }
 .book-grid-list {
   display: grid;
@@ -53,7 +79,7 @@ body{
   flex-flow: column nowrap;
   position: relative;
 }
-.searchfield-addbook-hover{
+.searchfield-addbook-hover {
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 8px;
   position: absolute;
@@ -63,9 +89,9 @@ body{
   height: 100%;
   z-index: 99;
   opacity: 0;
-  transition: opacity 300ms ease-in-out ;
+  transition: opacity 300ms ease-in-out;
 }
-.searchfield-addbook-hover:hover{
+.searchfield-addbook-hover:hover {
   opacity: 1;
 }
 .book-img-container {
@@ -75,12 +101,11 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(13,80,60);
+  background-color: rgb(13, 80, 60);
   border-radius: 8px 8px 0 0;
 }
-.book-img{
+.book-img {
   width: 100%;
-
 }
 .book-img-container:hover .fa-trash-can {
   transform: translateY(0);
@@ -115,7 +140,7 @@ body{
   text-align: center;
   transform: translateY(100%);
 }
-.book-content-container{
+.book-content-container {
   padding: 16px;
   background-color: rgb(45, 51, 56);
   flex: 1;
@@ -123,7 +148,7 @@ body{
   flex-flow: column;
   border-radius: 0 0 8px 8px;
 }
-.book-content-container div{
+.book-content-container div {
   flex: 1;
   margin-bottom: 10px;
 }
