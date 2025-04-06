@@ -9,7 +9,7 @@ A shop system for virtually "buying" books is already planned.
 - Search for books using the OpenLibrary API
 - Display book details including title, author, and cover
 - (Planned) Shop system for virtually purchasing books
-- <br><br><br>
+<br><br>
 
 ## 📚 Data Source
 This project uses the OpenLibrary API to fetch book information based on titles or ISBNs.
@@ -23,7 +23,7 @@ The book data (such as title, author, and cover images) comes directly from Open
 - [Bootstrap 5.3 (via CDN)](https://getbootstrap.com/)
 - [Font Awesome (via CDN)](https://fontawesome.com/)
 - [OpenLibrary API](https://openlibrary.org/developers/api)
-<br><br><br>
+<br><br>
 
 
 ## 🌐 External Resources
